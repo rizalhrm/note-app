@@ -1,33 +1,79 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image
+} from "react-native";
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+import { Container, Content, Icon, Header, Body, Left, Right } from 'native-base'
+import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation'
+
+import SettingsScreen from './src/Screens/SettingsScreen';
+import HomeScreen from "./src/Screens/HomeScreen";
+
+const CustomDrawerContentComponent = (props) => (
+
+  <Container>
+    <Header style={styles.drawerHeader}>
+      <Body>
+        <Image
+          style={styles.drawerImage}
+          source={require('./assets/DrawerIcons/icon.png')} />
+      </Body>
+    </Header>
+    <Content>
+      <DrawerItems {...props} />
+    </Content>
+
+  </Container>
+
+);
+
+const Drawer = createDrawerNavigator({
+
+    Home: {
+      screen: HomeScreen,
+    },
+    Settings: {
+      screen: SettingsScreen
+    }
+},
+  {
+    initialRouteName: 'Home',
+    drawerPosition: 'left',
+    contentComponent: CustomDrawerContentComponent,
+    drawerOpenRoute: 'DrawerOpen',
+    drawerCloseRoute: 'DrawerClose',
+    drawerToggleRoute: 'DrawerToggle'
   }
-}
+)
+
+const switchNavigator = createSwitchNavigator({
+    Drawer
+});
+
+
+export default createAppContainer(switchNavigator);
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    alignItems: 'center'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  drawerHeader: {
+    height: 130,
+    backgroundColor: 'white'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  drawerImage: {
+    height: 100,
+    width: 100,
+    borderRadius: 75,
+    justifyContent: 'center',
+    alignSelf: 'center'
+  }
+
+})
