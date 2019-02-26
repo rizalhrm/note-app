@@ -3,14 +3,19 @@ import {
   View,
   Text,
   StyleSheet,
-  Image
+  Image,
+  SafeAreaView,
+  Alert
 } from "react-native";
 
-import { Icon, Button, Container, Header, Content, Left } from 'native-base'
+import { Button, Container, Header, Content, Left, Footer, Fab, Icon } from 'native-base';
+import ActionButton from 'react-native-action-button';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import CustomHeader from '../Components/CustomHeader'
 
 class HomeScreen extends Component {
+
   static navigationOptions = ({ navigation }) => ({
     title: "Home",
     headerLeft: <Icon name="menu" onPress={() => navigation.navigate('DrawerOpen')} />,
@@ -23,22 +28,30 @@ class HomeScreen extends Component {
     ),
   })
 
-
   render() {
+
     return (
 
       <Container>
 
         <CustomHeader title="E-Notes" drawerOpen={() => this.props.navigation.openDrawer()} />
 
-        <Content
-          contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>
-          <Button
-            onPress={() => this.props.navigation.navigate('Settings')} full>
-            <Text style={{ color: 'white' }}>Go To Settings Screen</Text>
-          </Button>
+        <Content>
+            
         </Content>
-
+          <View style={{flex:1}}>
+              <ActionButton buttonColor="rgba(231,76,60,1)">
+              <ActionButton.Item buttonColor='#9b59b6' title="New Note" onPress={() => console.log("notes tapped!")}>
+                <Ionicons name="ios-create" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              <ActionButton.Item buttonColor='#3498db' title="Audio" onPress={() => {}}>
+                <Ionicons name="ios-microphone" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              <ActionButton.Item buttonColor='#1abc9c' title="Image" onPress={() => {}}>
+                <Ionicons name="ios-image" style={styles.actionButtonIcon} />
+              </ActionButton.Item>
+              </ActionButton>
+          </View>
       </Container>
 
     )
@@ -53,5 +66,10 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
+  },
+  actionButtonIcon: {
+    fontSize: 23,
+    height: 25,
+    color: 'white',
   },
 });

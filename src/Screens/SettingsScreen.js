@@ -10,7 +10,7 @@ import CustomHeader from '../Components/CustomHeader'
 
 class SettingsScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: "Settings",
+        title: "Edit Profile",
         headerLeft: <Icon name="menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
         drawerIcon:
             <Image
@@ -26,7 +26,7 @@ class SettingsScreen extends Component {
             <Container>
 
                 <CustomHeader
-                    title="Settings"
+                    title="Edit Profile"
                     drawerOpen={() => this.props.navigation.openDrawer()}
                 />
                 <Content contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>

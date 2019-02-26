@@ -1,26 +1,24 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Image
-} from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 
-import { Container, Content, Header, Body } from 'native-base'
+import { Container, Content, ListItem, Body, Text, Button, Left, Right, Icon } from 'native-base'
 import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 import store from './src/public/redux/store';
 import { Provider } from 'react-redux';
 
+import LogOutScreen from './src/Screens/LogOutScreen';
 import SettingsScreen from './src/Screens/SettingsScreen';
 import HomeScreen from "./src/Screens/HomeScreen";
 import LoginScreen from './src/Screens/LoginScreen';
 import RegisterScreen from './src/Screens/RegisterScreen';
 import Splash from './src/Splash'
-import CheckLogin from './src/CheckLogin';
+import DrawerProfile from './src/DrawerProfile';
 
 const CustomDrawerContentComponent = (props) => (
 
   <Container> 
-    <CheckLogin />
+    <DrawerProfile />
     <Content>
       <DrawerItems {...props} />
     </Content>
@@ -55,6 +53,12 @@ const Drawer = createDrawerNavigator({
     },
     SettingsDrawer: {
       screen: SettingsScreen
+    },
+    LogOut : {
+      screen: LogOutScreen,
+      navigationOptions: () => ({
+        header: null
+      })
     }
 },
   {
@@ -74,7 +78,7 @@ const MainStack = createAppContainer(createSwitchNavigator(
       Login : LoginNavigator
   },
   {
-      initialRouteName: 'Drawer'
+      initialRouteName: 'Splash'
   }
 ));
 
@@ -88,3 +92,10 @@ export default class Root extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  sectionHeadingStyle: {
+    paddingVertical: 10,
+    paddingHorizontal: 5
+  },
+})

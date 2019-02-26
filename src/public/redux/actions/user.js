@@ -1,41 +1,33 @@
 import axios from 'axios'
 import { server } from '../../../server'
 
-export const showError = (message) => {
+export const getFullProfile = (user_id, token) => {
 	return {
-		type: 'SHOW_ERROR',
-		payload: message
-	}
-}
-
-export const logout = () => {
-	axios.defaults.headers.common['Authorization'] = ''
-	return {
-		type: 'LOGOUT'
-	}
-}
-
-export const getUser = ({ id, token }) => {
-	axios.defaults.headers.common['Authorization'] = 'Bearer '+token
-	return async (dispatch) => {
-		try {
-			await	dispatch({
-					type: 'GET_USER',
-					payload: axios.get(`${server.url}/api/v1/user/${id}`)
-				})
-		} catch(e) {
-			dispatch(showError(e.message))
+	  type: "GET_FULL_PRORILE",
+	  payload: axios({
+		method: "get",
+		url: `${server.url}/api/v1/user/${user_id}`,
+		headers: {
+		  Authorization: `Bearer ${token}`
 		}
-	}
-}
-
-export const editProfile = (user_id, { name, birth_date, gender }) => {
+	  })
+	};
+  };
+  
+  export const updateProfile = (body, token) => {
 	return {
-		type: 'EDIT_PROFILE',
-		payload: axios.patch(`${server.url}/api/v1/user/${user_id}`, { name, birth_date, gender })
-	}
-}
-
+	  type: "UPDATE_PROFILE",
+	  payload: axios({
+		method: "post",
+		url: `${server.url}/api/v1/user`,
+		data: body,
+		headers: {
+		  Authorization: `Bearer ${token}`
+		}
+	  })
+	};
+  };
+  
 export const addUser = ({ email, username, password }) => {
 	return {
 		type: 'REGISTER_USER',

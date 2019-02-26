@@ -1,31 +1,23 @@
 import React from "react";
-import { ImageBackground, ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, ActivityIndicator, StyleSheet, Text, View, AsyncStorage } from "react-native";
 import { connect } from 'react-redux';
-import { getToken } from './public/redux/actions/auth'
-import { getUser } from './public/redux/actions/user'
 
 class Splash extends React.Component {
 
     constructor(props) {
         super(props);
-        
-      }
+    }
 
-      _bootstrapAsync = async () => {
-            await this.props.dispatch(getToken())
-            if(this.props.auth.token == null) {
-                this.props.navigation.navigate('LoginNavigator')
-            } else {
-                await this.props.dispatch(getUser(this.props.auth))
-                this.props.navigation.navigate('Home')
-            }
-      };
+    _bootstrapAsync = async () => {
+        const token = await AsyncStorage.getItem('token');
+        this.props.navigation.navigate(token ? 'Drawer' : 'Login');
+    };
 
-      componentDidMount() {
+    componentDidMount() {
         setTimeout(() => {
             this._bootstrapAsync();
         }, 3000);
-       }
+    }
 
     render(){
         return(

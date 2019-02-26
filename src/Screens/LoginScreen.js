@@ -17,9 +17,10 @@ class LoginScreen extends React.Component {
         this.doLogin()
           .then(res => {
             const auth = this.props.auth;
+            AsyncStorage.setItem("id", auth.data.id);
             AsyncStorage.setItem("token", auth.access_token.token);
             AsyncStorage.setItem("refreshToken", auth.access_token.refreshToken);
-            this.props.navigation.navigate("Home");
+            this.props.navigation.navigate("HomeDrawer");
           })
           .catch(err => {
             console.log(err);
