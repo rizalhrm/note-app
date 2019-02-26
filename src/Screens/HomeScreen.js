@@ -13,7 +13,7 @@ import CustomHeader from '../Components/CustomHeader'
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: "Home",
-    headerLeft: <Icon name="menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
+    headerLeft: <Icon name="menu" onPress={() => navigation.navigate('DrawerOpen')} />,
     drawerLabel: 'Home',
     drawerIcon: ({ tintColor }) => (
       <Image
@@ -29,7 +29,7 @@ class HomeScreen extends Component {
 
       <Container>
 
-        <CustomHeader title="Home" drawerOpen={() => this.props.navigation.openDrawer()} />
+        <CustomHeader title="E-Notes" drawerOpen={() => this.props.navigation.openDrawer()} />
 
         <Content
           contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>

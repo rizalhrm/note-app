@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import {
-  View,
-  Text,
   StyleSheet,
-  ScrollView,
   Image
 } from "react-native";
 
-import { Container, Content, Icon, Header, Body, Left, Right } from 'native-base'
-import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation'
+import { Container, Content, Header, Body } from 'native-base'
+import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+
+import store from './src/public/redux/store';
+import { Provider } from 'react-redux';
 
 import SettingsScreen from './src/Screens/SettingsScreen';
 import HomeScreen from "./src/Screens/HomeScreen";
+import LoginScreen from './src/Screens/LoginScreen';
+import RegisterScreen from './src/Screens/RegisterScreen';
+import Splash from './src/Splash'
+import CheckLogin from './src/CheckLogin';
 
 const CustomDrawerContentComponent = (props) => (
 
-  <Container>
-    <Header style={styles.drawerHeader}>
-      <Body>
-        <Image
-          style={styles.drawerImage}
-          source={require('./assets/DrawerIcons/icon.png')} />
-      </Body>
-    </Header>
+  <Container> 
+    <CheckLogin />
     <Content>
       <DrawerItems {...props} />
     </Content>
@@ -31,17 +29,36 @@ const CustomDrawerContentComponent = (props) => (
 
 );
 
+const LoginNavigator = createStackNavigator({
+  Login: {
+      screen: LoginScreen,
+      navigationOptions: () => ({
+          header: null
+      })
+  },
+  Register: {
+      screen: RegisterScreen,
+      navigationOptions: () => ({
+          title: "Register",
+          headerStyle: {
+              backgroundColor: '#fff',
+          },
+          headerTintColor: '#000'
+      }),
+  }
+})
+
 const Drawer = createDrawerNavigator({
 
-    Home: {
+    HomeDrawer: {
       screen: HomeScreen,
     },
-    Settings: {
+    SettingsDrawer: {
       screen: SettingsScreen
     }
 },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'HomeDrawer',
     drawerPosition: 'left',
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
@@ -50,30 +67,24 @@ const Drawer = createDrawerNavigator({
   }
 )
 
-const switchNavigator = createSwitchNavigator({
-    Drawer
-});
-
-
-export default createAppContainer(switchNavigator);
-
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+const MainStack = createAppContainer(createSwitchNavigator(
+  {
+      Splash : Splash,
+      Drawer : Drawer,
+      Login : LoginNavigator
   },
-  drawerHeader: {
-    height: 130,
-    backgroundColor: 'white'
-  },
-  drawerImage: {
-    height: 100,
-    width: 100,
-    borderRadius: 75,
-    justifyContent: 'center',
-    alignSelf: 'center'
+  {
+      initialRouteName: 'Drawer'
   }
+));
 
-})
+
+export default class Root extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <MainStack />
+      </Provider>
+    )
+  }
+}

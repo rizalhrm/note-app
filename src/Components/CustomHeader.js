@@ -7,7 +7,7 @@ class CustomHeader extends Component {
             <Header style={{backgroundColor: '#fff'}}>
                 <Left><Icon name="menu" onPress={() => this.props.drawerOpen()} /></Left>
                 <Body>
-                    <Title style={{color: '#000'}}>{this.props.title}</Title>
+                    <Title style={{color: '#000', fontFamily: 'Roboto-Bold'}}>{this.props.title}</Title>
                 </Body>
                 <Right />
             </Header>

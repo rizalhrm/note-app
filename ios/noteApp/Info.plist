@@ -73,6 +73,19 @@
 		<string>rubicon-icon-font.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+		<string>SharpeBl_PERSONAL.ttf</string>
+		<string>SharpeBlIt_PERSONAL.ttf</string>
+		<string>SharpeBo_PERSONAL.ttf</string>
+		<string>SharpeBoIt_PERSONAL.ttf</string>
+		<string>SharpeLi_PERSONAL.ttf</string>
+		<string>SharpeLiIt_PERSONAL.ttf</string>
+		<string>SharpeMe_PERSONAL.ttf</string>
+		<string>SharpeMeIt_PERSONAL.ttf</string>
+		<string>SharpeTh_PERSONAL.ttf</string>
+		<string>SharpeThIt_PERSONAL.ttf</string>
 	</array>
 </dict>
 </plist>

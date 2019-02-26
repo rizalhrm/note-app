@@ -58,6 +58,19 @@
 		271BEFFB5E0644DC962250EA /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08BF9EFBDC0E4DDE83312FC4 /* rubicon-icon-font.ttf */; };
 		B4A597C59AF1423FA65C7792 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1C4B81F4CA1413D890F10CE /* SimpleLineIcons.ttf */; };
 		8B65F9F03E7349E9BE02584D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE78E857A7E7409B806B059F /* Zocial.ttf */; };
+		6CC73875DC6448A98A4E8E36 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E00891698C24B85BCA6C125 /* Roboto-Bold.ttf */; };
+		5B2D52FD8A92445FBE869868 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5113137484543018A76985C /* Roboto-Regular.ttf */; };
+		A524D670DEAA4EB1930C2A22 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194E944579994659B6F930CA /* Roboto-Thin.ttf */; };
+		55982402A34A4C7BAFA79D02 /* SharpeBl_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF877C980FC345289BC4444C /* SharpeBl_PERSONAL.ttf */; };
+		431EC155F3AB4F3693BD7097 /* SharpeBlIt_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01BB9CAF59F44742B8D70EEE /* SharpeBlIt_PERSONAL.ttf */; };
+		0D911339D00E4A94AC53145F /* SharpeBo_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC804C8BD36B4C14B94DE8C6 /* SharpeBo_PERSONAL.ttf */; };
+		7D41F4611A9B486D96CF5AB6 /* SharpeBoIt_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F136E2E5E510413EA448434B /* SharpeBoIt_PERSONAL.ttf */; };
+		F4D1A59B36E640D8BDC68449 /* SharpeLi_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A5DE4BCDE464756873B8EF0 /* SharpeLi_PERSONAL.ttf */; };
+		9C866BC123FA4F31AEC2B09B /* SharpeLiIt_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56212D6636844B90BDA17C40 /* SharpeLiIt_PERSONAL.ttf */; };
+		B5264B150C384050A2A04BD3 /* SharpeMe_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD40E81792BC4CD6B7069630 /* SharpeMe_PERSONAL.ttf */; };
+		36519F1DB1D5469D8BE5252A /* SharpeMeIt_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4D1BF4F379843DD96828B4D /* SharpeMeIt_PERSONAL.ttf */; };
+		C0C664E80E514CFD80DDD4BC /* SharpeTh_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49AFA04964C4430CB73EE4C7 /* SharpeTh_PERSONAL.ttf */; };
+		28DB678A62E6484881306A6D /* SharpeThIt_PERSONAL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB31D9DFEE2A4031A1A81680 /* SharpeThIt_PERSONAL.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +398,19 @@
 		08BF9EFBDC0E4DDE83312FC4 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E1C4B81F4CA1413D890F10CE /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EE78E857A7E7409B806B059F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7E00891698C24B85BCA6C125 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A5113137484543018A76985C /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		194E944579994659B6F930CA /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DF877C980FC345289BC4444C /* SharpeBl_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeBl_PERSONAL.ttf"; path = "../assets/fonts/SharpeBl_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		01BB9CAF59F44742B8D70EEE /* SharpeBlIt_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeBlIt_PERSONAL.ttf"; path = "../assets/fonts/SharpeBlIt_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CC804C8BD36B4C14B94DE8C6 /* SharpeBo_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeBo_PERSONAL.ttf"; path = "../assets/fonts/SharpeBo_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F136E2E5E510413EA448434B /* SharpeBoIt_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeBoIt_PERSONAL.ttf"; path = "../assets/fonts/SharpeBoIt_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5A5DE4BCDE464756873B8EF0 /* SharpeLi_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeLi_PERSONAL.ttf"; path = "../assets/fonts/SharpeLi_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		56212D6636844B90BDA17C40 /* SharpeLiIt_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeLiIt_PERSONAL.ttf"; path = "../assets/fonts/SharpeLiIt_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FD40E81792BC4CD6B7069630 /* SharpeMe_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeMe_PERSONAL.ttf"; path = "../assets/fonts/SharpeMe_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F4D1BF4F379843DD96828B4D /* SharpeMeIt_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeMeIt_PERSONAL.ttf"; path = "../assets/fonts/SharpeMeIt_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		49AFA04964C4430CB73EE4C7 /* SharpeTh_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeTh_PERSONAL.ttf"; path = "../assets/fonts/SharpeTh_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EB31D9DFEE2A4031A1A81680 /* SharpeThIt_PERSONAL.ttf */ = {isa = PBXFileReference; name = "SharpeThIt_PERSONAL.ttf"; path = "../assets/fonts/SharpeThIt_PERSONAL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +699,19 @@
 				08BF9EFBDC0E4DDE83312FC4 /* rubicon-icon-font.ttf */,
 				E1C4B81F4CA1413D890F10CE /* SimpleLineIcons.ttf */,
 				EE78E857A7E7409B806B059F /* Zocial.ttf */,
+				7E00891698C24B85BCA6C125 /* Roboto-Bold.ttf */,
+				A5113137484543018A76985C /* Roboto-Regular.ttf */,
+				194E944579994659B6F930CA /* Roboto-Thin.ttf */,
+				DF877C980FC345289BC4444C /* SharpeBl_PERSONAL.ttf */,
+				01BB9CAF59F44742B8D70EEE /* SharpeBlIt_PERSONAL.ttf */,
+				CC804C8BD36B4C14B94DE8C6 /* SharpeBo_PERSONAL.ttf */,
+				F136E2E5E510413EA448434B /* SharpeBoIt_PERSONAL.ttf */,
+				5A5DE4BCDE464756873B8EF0 /* SharpeLi_PERSONAL.ttf */,
+				56212D6636844B90BDA17C40 /* SharpeLiIt_PERSONAL.ttf */,
+				FD40E81792BC4CD6B7069630 /* SharpeMe_PERSONAL.ttf */,
+				F4D1BF4F379843DD96828B4D /* SharpeMeIt_PERSONAL.ttf */,
+				49AFA04964C4430CB73EE4C7 /* SharpeTh_PERSONAL.ttf */,
+				EB31D9DFEE2A4031A1A81680 /* SharpeThIt_PERSONAL.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1142,6 +1181,19 @@
 				271BEFFB5E0644DC962250EA /* rubicon-icon-font.ttf in Resources */,
 				B4A597C59AF1423FA65C7792 /* SimpleLineIcons.ttf in Resources */,
 				8B65F9F03E7349E9BE02584D /* Zocial.ttf in Resources */,
+				6CC73875DC6448A98A4E8E36 /* Roboto-Bold.ttf in Resources */,
+				5B2D52FD8A92445FBE869868 /* Roboto-Regular.ttf in Resources */,
+				A524D670DEAA4EB1930C2A22 /* Roboto-Thin.ttf in Resources */,
+				55982402A34A4C7BAFA79D02 /* SharpeBl_PERSONAL.ttf in Resources */,
+				431EC155F3AB4F3693BD7097 /* SharpeBlIt_PERSONAL.ttf in Resources */,
+				0D911339D00E4A94AC53145F /* SharpeBo_PERSONAL.ttf in Resources */,
+				7D41F4611A9B486D96CF5AB6 /* SharpeBoIt_PERSONAL.ttf in Resources */,
+				F4D1A59B36E640D8BDC68449 /* SharpeLi_PERSONAL.ttf in Resources */,
+				9C866BC123FA4F31AEC2B09B /* SharpeLiIt_PERSONAL.ttf in Resources */,
+				B5264B150C384050A2A04BD3 /* SharpeMe_PERSONAL.ttf in Resources */,
+				36519F1DB1D5469D8BE5252A /* SharpeMeIt_PERSONAL.ttf in Resources */,
+				C0C664E80E514CFD80DDD4BC /* SharpeTh_PERSONAL.ttf in Resources */,
+				28DB678A62E6484881306A6D /* SharpeThIt_PERSONAL.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
