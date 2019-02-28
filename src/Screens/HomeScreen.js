@@ -52,7 +52,7 @@ class HomeScreen extends Component {
             <Body>
               <Text numberOfLines={1} style={{color: 'grey', fontSize: 15, paddingBottom: 5}}>{item.created_at}</Text>
               <Text numberOfLines={2} style={{ fontSize: 18, color : 'black', marginBottom:2}}>{item.title == null ? '[No Title]' : item.title }</Text>
-              <Text numberOfLines={3} style={{ fontSize: 16, color : 'black', marginBottom:2}}>{item.note == null ? '' : item.note }</Text>
+              <Text numberOfLines={3} style={{ fontSize: 16, color : 'black', marginBottom:2}}>{item.detail_notes_id == null ? '' : item.detail_notes_id.text }</Text>
             </Body>
             <Image source={{uri: item.image}} style={styles.image}/>
           </CardItem>
@@ -96,6 +96,7 @@ class HomeScreen extends Component {
           }
 
         </Content>
+        <Button onPress={() => this.props.navigation.navigate('NewNote')}><Text>wasas</Text></Button>
             <ActionButton buttonColor="rgba(231,76,60,1)">
             <ActionButton.Item buttonColor='#9b59b6' title="New Note" onPress={() => this.props.navigation.navigate('NewNote')}>
               <Ionicons name="ios-create" style={styles.actionButtonIcon} />

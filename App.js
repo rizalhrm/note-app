@@ -52,7 +52,7 @@ const CreateNoteNavigator = createStackNavigator({
       screen: NewNote,
       navigationOptions: () => ({
         header: null
-      })
+    })
   },
 })
 
@@ -86,13 +86,7 @@ const MainStack = createAppContainer(createSwitchNavigator(
       Splash : Splash,
       Drawer : Drawer,
       Login : LoginNavigator,
-      // NewNote : CreateNoteNavigator,
-      NewNote: {
-        screen: NewNote,
-        navigationOptions: () => ({
-          header: null
-        })
-    },
+      NewNote : CreateNoteNavigator
   },
   {
       initialRouteName: 'Splash'

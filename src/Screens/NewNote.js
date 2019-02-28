@@ -3,18 +3,16 @@ import {
   Text,
   View,
   TextInput,
-  BackAndroid,
-  StatusBar,
-  ActivityIndicator,
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
+  AsyncStorage,
   Platform,
   Dimensions,
   TouchableOpacity
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CNRichTextEditor , { CNToolbar, getInitialObject , getDefaultStyles } from "react-native-cn-richtext-editor";
 import {
   Menu,
@@ -25,7 +23,7 @@ import {
   MenuProvider,
   renderers
 } from 'react-native-popup-menu';
-import { Icon } from 'native-base'
+import { Icon, Fab, Header, Left, Right, Body, Title } from 'native-base'
 
 import { connect } from 'react-redux'
 import { createNote, updateNote } from '../public/redux/actions/note';
@@ -38,15 +36,22 @@ const defaultStyles = getDefaultStyles();
 
 class NewNote extends Component {
 
+  static navigationOptions = ({ navigation }) => ({
+        title: "Create New Note",
+        headerLeft: (
+        <TouchableOpacity onPress={() => navigation.navigate('HomeDrawer')}>
+        <Icon style={styles.myicon} name='arrow-back'/>
+        </TouchableOpacity>),
+        headerStyle: {
+            backgroundColor: '#fff',
+        },
+        headerTintColor: '#000'
+  })
+
   constructor(props) {
     super(props);
 
     let title = '';
-    let value = '';
-    if (props.navigation.state.params) {
-      title = props.navigation.state.params.title;
-      value = props.navigation.state.params.value;
-    }
     this.state = {
         title: title,
         selectedTag : 'body',
@@ -57,8 +62,6 @@ class NewNote extends Component {
         colors : ['red', 'green', 'blue'],
         highlights:['yellow_hl','pink_hl', 'orange_hl', 'green_hl','purple_hl','blue_hl']
     }
-
-    this.state.value = [getInitialObject()];
 
     this.editor = null;
   }
@@ -100,10 +103,12 @@ onValueChanged = (value) => {
     });
 }
 
-  handleSave = () => {
-    this.props.dispatch(createNote(this.state))
+  handleSave = async () => {
+    const user_id = 5;
+    this.props.dispatch(createNote({user_id: user_id, title: this.state.title, detail_notes : {note_id: this.props.note.lastid, generate_id: this.state.value[0].id, text: this.state.value[0].text}}))
     .then( res => {
         this.props.navigation.navigate("HomeDrawer");
+        console.log(this.state.value)
     })
     .catch( err => {
       alert('message : ' + err)
@@ -334,11 +339,13 @@ renderHighlight() {
       </Menu>
   );
 }
-
+alertku = () => {
+    alert("Lah Lah")
+}
 
   render() {
     return (
-      <KeyboardAvoidingView
+      <View
       behavior="padding"
       style={{
           flex: 1,
@@ -346,16 +353,27 @@ renderHighlight() {
           flexDirection: 'column', 
           justifyContent: 'flex-end'
       }}>
-
-        <View style = { styles.header }>
-        <View style={{left: 2}}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDrawer')}>
+      
+      <View style={{flex: 0.1}}>
+        <Header style={{backgroundColor: '#fff'}}>
+            <Left>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDrawer')}>
                 <Icon style={styles.myicon} name='arrow-back'/>
-            </TouchableOpacity>
-        </View>
-        </View>
+                </TouchableOpacity>
+            </Left>
+            <Body>
+                <Text style = { styles.label }> Create New Note </Text>
+            </Body>
+            <Right>
+                <TouchableOpacity onPress={this.handleSave}>
+                <Icon style={styles.save} name='checkmark'/>
+                </TouchableOpacity>
+            </Right>
+        </Header>
+       </View>
 
-        <MenuProvider style={{flex: 1}}>
+        <MenuProvider style={{flex: 1, flexDirection: 'column'}}>
+        <View style={{flex: 1}}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} >             
             <View style={styles.main}>
                 <TextInput
@@ -376,8 +394,9 @@ renderHighlight() {
                 />                      
             </View>
         </TouchableWithoutFeedback>
-    
-        
+        </View>
+
+        <View>
             <CNToolbar
                 size={28}
                 bold={<MaterialCommunityIcons name="format-bold" />}
@@ -388,7 +407,7 @@ renderHighlight() {
                 title={<MaterialCommunityIcons name="format-header-1" />}
                 heading={<MaterialCommunityIcons name="format-header-3" />}
                 ul={<MaterialCommunityIcons name="format-list-bulleted" />}
-                ol={<MaterialCommunityIcons name="format-list-numbered" />}
+                ol={<MaterialIcons name="format-list-numbered" />}
                 image={this.renderImageSelector()}
                 foreColor={this.renderColorSelector()}
                 highlight={this.renderHighlight()}
@@ -396,8 +415,9 @@ renderHighlight() {
                 selectedStyles={this.state.selectedStyles}
                 onStyleKeyPress={this.onStyleKeyPress} 
                 />
+        </View>
         </MenuProvider>
-    </KeyboardAvoidingView>
+    </View>
     )
   }
 }
@@ -439,22 +459,18 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignSelf: 'center'
     },
-    save: {
+    mysave : {
         color: 'black',
         marginRight: 8,
         alignItems: 'center',
         alignContent: 'center',
         alignSelf: 'center'
     },
-    header: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: width,
-        height: 56,
-        marginBottom: 6,
-        backgroundColor: '#fff',
-        flexDirection : 'row'
-    },
+    label: {
+        color: 'black',
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
   });
 
   const optionsStyles = {

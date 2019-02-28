@@ -11,13 +11,23 @@ export const allNote = () => {
     }
 }
 
-export const createNote = (value) => {
+export const lastNote = () => {
+  return {
+    type: 'LAST_NOTE',
+    payload: axios({
+                method: 'GET',
+                url: `${server.url}/api/v1/notes/lastid`
+             })
+  }
+}
+
+export const createNote = (body) => {
     return {
       type: 'CREATE_NOTE',
       payload: axios({
         method: 'POST',
         url: `${server.url}/api/v1/notes`,
-        data: value
+        data: body
       })
     }
 }

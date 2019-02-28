@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, AsyncStorage} from 'react-native';
-import { Container, Content, Header, Body } from 'native-base'
+import { Header, Body } from 'native-base'
 import { connect } from 'react-redux';
 
 import { getProfile } from './public/redux/actions/auth'
