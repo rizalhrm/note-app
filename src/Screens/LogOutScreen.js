@@ -31,13 +31,11 @@ class LogOutScreen extends Component {
 
     })
     
-    componentDidMount() {
-        this.props.navigation.navigate("Login")
-    }
+    // componentDidMount() {
+    //     this.props.navigation.navigate("Login")
+    // }
 
     render() {
-        return (<ActivityIndicator size='large' color='#03A9F4'/>
-        )
     }
 
 }

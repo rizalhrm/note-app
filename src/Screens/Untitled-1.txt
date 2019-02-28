@@ -1,0 +1,33 @@
+<View style={ styles.addNotesContainer }>
+        
+        <View style={styles.textInputContainer}>
+          <TextInput
+            style={styles.inputTitleStyle}
+            autoFocus={true}
+            placeholder='Judul Catatan...'
+            placeholderTextColor='#aaa'
+            returnKeyType='next'
+            underlineColorAndroid="transparent"
+            onChangeText={(text) => this.setState({ title: text })}
+            value={this.state.title}
+          />
+
+          <TextInput
+            style={styles.inputDescriptionStyle}
+            multiline={true}
+            placeholder='Deskripsi Catatan...'
+            placeholderTextColor='#aaa'
+            returnKeyType='done'
+            underlineColorAndroid="transparent"
+            onChangeText={(text) => this.setState({desc: text})}
+            value={this.state.desc}
+          />
+        </View>
+
+        <View style={styles.inputScreenBtnContainer}>
+            <Button  onPress={this.props.navigation.state.params && this.props.navigation.state.params.title ? this.handleUpdate : this.handleSave} style={styles.button}>
+            {this.props.note.isLoading ? <ActivityIndicator color="#ffffff" /> : <Text>Save</Text>}
+          </Button>
+        </View>
+
+      </View>

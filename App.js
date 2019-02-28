@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import { Container, Content, ListItem, Body, Text, Button, Left, Right, Icon } from 'native-base'
+import { Container, Content } from 'native-base'
 import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 import store from './src/public/redux/store';
@@ -14,6 +14,7 @@ import LoginScreen from './src/Screens/LoginScreen';
 import RegisterScreen from './src/Screens/RegisterScreen';
 import Splash from './src/Splash'
 import DrawerProfile from './src/DrawerProfile';
+import NewNote from './src/Screens/NewNote';
 
 const CustomDrawerContentComponent = (props) => (
 
@@ -46,6 +47,15 @@ const LoginNavigator = createStackNavigator({
   }
 })
 
+const CreateNoteNavigator = createStackNavigator({
+  NewNote: {
+      screen: NewNote,
+      navigationOptions: () => ({
+        header: null
+      })
+  },
+})
+
 const Drawer = createDrawerNavigator({
 
     HomeDrawer: {
@@ -75,7 +85,14 @@ const MainStack = createAppContainer(createSwitchNavigator(
   {
       Splash : Splash,
       Drawer : Drawer,
-      Login : LoginNavigator
+      Login : LoginNavigator,
+      // NewNote : CreateNoteNavigator,
+      NewNote: {
+        screen: NewNote,
+        navigationOptions: () => ({
+          header: null
+        })
+    },
   },
   {
       initialRouteName: 'Splash'
@@ -92,10 +109,3 @@ export default class Root extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  sectionHeadingStyle: {
-    paddingVertical: 10,
-    paddingHorizontal: 5
-  },
-})

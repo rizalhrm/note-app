@@ -3,7 +3,8 @@ const initialState = {
     note: {},
     isLoading: false,
     isError: false,
-    isSuccess: false
+    isSuccess: false,
+    length: 0
   }
   
   export default note = (state = initialState, action) => {
@@ -11,10 +12,11 @@ const initialState = {
   
       case 'ALL_NOTES_PENDING':
         return {...state, isLoading: true, isSuccess: false, isError: false}
-      case 'ALL_NOTES_FULFILLED':
-        return { ...state, isLoading: false, notes: action.payload.data}
       case 'ALL_NOTES_REJECTED':
         return { ...state, isLoading: false, isError: true }
+      case 'ALL_NOTES_FULFILLED':
+        return { ...state, isLoading: false, notes: action.payload.data, length: action.payload.data.length}
+      
   
       case 'CREATE_NOTE_PENDING':
         return {...state, isLoading: true, isSuccess: false, isError: false};

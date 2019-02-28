@@ -47,8 +47,6 @@ class LoginScreen extends React.Component {
                     <View style={styles.keyboard}>
                         <View style={styles.window}>
                         <TextInput
-                            value={this.state.email}
-                            onChangeText={(email) => this.setState({email})}
                             placeholder="Email"
                             placeholderTextColor="#000"
                             returnKeyType="next"
@@ -68,8 +66,6 @@ class LoginScreen extends React.Component {
                         </View>
                         <View style={styles.window}>
                         <TextInput
-                            value={this.state.password}
-                            onChangeText={(password) => this.setState({password})}
                             placeholder="Password"
                             placeholderTextColor="#000"
                             borderLeftWidth={1}
