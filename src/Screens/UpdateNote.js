@@ -19,14 +19,14 @@ import {
   MenuOptions,
   MenuOption,
   MenuTrigger,
+  MenuContext,
   MenuProvider,
   renderers
 } from 'react-native-popup-menu';
-import ImagePicker from 'react-native-image-picker';
 import { Icon, Fab, Header, Left, Right, Body, Title } from 'native-base'
 
 import { connect } from 'react-redux'
-import { createNote } from '../public/redux/actions/note';
+import { updateNote } from '../public/redux/actions/note';
 
 const { SlideInMenu } = renderers;
 
@@ -34,36 +34,35 @@ const IS_IOS = Platform.OS === 'ios';
 const { width, height } = Dimensions.get('window');
 const defaultStyles = getDefaultStyles();
 
-class NewNote extends Component {
+class UpdateNote extends Component {
 
   constructor(props) {
     super(props);
 
-    let title = '';
-
+    let title = props.navigation.state.params.item.title;
+    let pastValue = props.navigation.state.params.item.text;
+    let id = props.navigation.state.params.item.id;
     this.state = {
         title: title,
+        id : id,
         selectedTag : 'body',
         selectedStyles : [],
-        value: [getInitialObject()],
+        value: pastValue,
         selectedColor : 'default',
         selectedHighlight: 'default',
         colors : ['red', 'green', 'blue'],
         highlights:['yellow_hl','pink_hl', 'orange_hl', 'green_hl','purple_hl','blue_hl']
     }
-
     this.editor = null;
   }
 
     onStyleKeyPress = (toolType) => {
-
         if (toolType == 'image') {
             return;
         }
         else {
             this.editor.applyToolbar(toolType);
         }
-
     }
 
 
@@ -92,68 +91,30 @@ class NewNote extends Component {
         });
     }
 
-    handleSave = async () => {
-        let image = this.state.value[0].url;
-        let array = this.state.value[1].content;
-        var ret = '';
-
-        array.forEach(function(element) {
-            ret += element.text;
-        });
-
-        const user_id = 5;
-        this.props.dispatch(createNote({user_id: user_id, title: this.state.title, text: ret, image: image}))
+    handleUpdate = async () => {
+        this.props.dispatch(updateNote({id: this.state.id, title: this.state.title, text: this.state.value}))
         .then( res => {
             this.props.navigation.navigate("HomeDrawer");
-            console.log(this.state.value)
         })
         .catch( err => {
             alert('message : ' + err)
         })
     }
 
-    insertImage(url) { 
+    insertImage(url) {
         this.editor.insertImage(url);
     }
 
     useLibraryHandler = async () => {
-    const options = {};
-    ImagePicker.launchImageLibrary(options, (response) => {
-        console.log('Response = ', response);
-
-        if (response.didCancel) {
-            console.log('User cancelled image picker');
-        }
-        else if (response.error) {
-            console.log('Image Picker Error: ', response.error);
-        }
-
-        else {
-            this.insertImage(response.uri);
-        }
-        }); 
+        
     };
 
     useCameraHandler = async () => {
-        await this.askPermissionsAsync();
-        let result = await ImagePicker.launchCameraAsync({
-            allowsEditing: true,
-            aspect: [4, 4],
-            base64: false,
-        });
-        console.log(result);
-
-        this.insertImage(result.uri);
+        
     };
 
-
     onImageSelectorClicked = (value) => {
-        if(value == 1) {
-            this.useCameraHandler();    
-        }
-        else if(value == 2) {
-            this.useLibraryHandler();         
-        }   
+    
     }
 
     onColorSelectorClicked = (value) => {
@@ -176,6 +137,7 @@ class NewNote extends Component {
         }
         else {
             this.editor.applyToolbar(value);
+        
         }
 
         this.setState({
@@ -261,6 +223,8 @@ renderHighlightMenuOptions = () => {
       lst = this.state.highlights.filter(x=> true);
       lst.push('default');
   }
+  
+  
 
   return (
       
@@ -277,13 +241,13 @@ renderHighlightMenuOptions = () => {
   );
 }
 
-renderColorSelector() {
- 
-  let selectedColor = '#737373';
-  if(defaultStyles[this.state.selectedColor])
-  {
-      selectedColor = defaultStyles[this.state.selectedColor].color;
-  }
+    renderColorSelector() {
+
+    let selectedColor = '#737373';
+    if(defaultStyles[this.state.selectedColor])
+    {
+        selectedColor = defaultStyles[this.state.selectedColor].color;
+    }
   
 
   return (
@@ -318,11 +282,9 @@ renderHighlight() {
       </Menu>
   );
 }
-    alertku = () => {
-        alert("Lah Lah")
-    }
 
   render() {
+    console.disableYellowBox = true
     return (
       <View
       behavior="padding"
@@ -341,10 +303,10 @@ renderHighlight() {
                 </TouchableOpacity>
             </Left>
             <Body>
-                <Text style = { styles.label }>Create New Note</Text>
+                <Text style = { styles.label }> Update My Note </Text>
             </Body>
             <Right>
-                <TouchableOpacity onPress={this.handleSave}>
+                <TouchableOpacity onPress={this.handleUpdate}>
                 <Icon style={styles.save} name='checkmark'/>
                 </TouchableOpacity>
             </Right>
@@ -362,15 +324,14 @@ renderHighlight() {
                 value={this.state.title}
                 style={{color: '#000', fontSize: 18, backgroundColor: '#fff', marginBottom: 5 }}
                 />
-                <CNRichTextEditor                   
-                    ref={input => this.editor = input}
-                    onSelectedTagChanged={this.onSelectedTagChanged}
-                    onSelectedStyleChanged={this.onSelectedStyleChanged}
-                    value={this.state.value}
-                    style={{ backgroundColor : '#fff'}}
-                    styleList={defaultStyles}
-                    onValueChanged={this.onValueChanged}
-                />                      
+                 <TextInput
+                placeholderTextColor="#c3c3c3"
+                editable = {true}
+                onChangeText={(value) => this.setState({value})}
+                value={this.state.value}
+                multiline
+                style={{color: '#000', fontSize: 18, backgroundColor: '#fff', marginBottom: 5, height: 490 }}
+                />            
             </View>
         </TouchableWithoutFeedback>
         </View>
@@ -407,7 +368,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(NewNote)
+export default connect(mapStateToProps)(UpdateNote)
 
 const styles = StyleSheet.create({
     main: {

@@ -15,6 +15,7 @@ import RegisterScreen from './src/Screens/RegisterScreen';
 import Splash from './src/Splash'
 import DrawerProfile from './src/DrawerProfile';
 import NewNote from './src/Screens/NewNote';
+import UpdateNote from './src/Screens/UpdateNote';
 
 const CustomDrawerContentComponent = (props) => (
 
@@ -53,6 +54,12 @@ const CreateNoteNavigator = createStackNavigator({
       navigationOptions: () => ({
         header: null
     })
+  },
+  UpdateNote: {
+    screen: UpdateNote,
+    navigationOptions: () => ({
+      header: null
+  })
   },
 })
 
