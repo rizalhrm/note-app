@@ -14,6 +14,19 @@ export const getProfile = token => {
   };
 };
 
+export const getStatus = token => {
+  return {
+    type: 'GET_STATUS',
+    payload: 
+    axios({
+      method: "get",
+      url: `${server.url}/api/v1/auth/check`,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+}    
   
 export const login = body => {
 	return {

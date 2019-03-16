@@ -8,14 +8,13 @@ class Splash extends React.Component {
         super(props);
     }
 
-    _bootstrapAsync = async () => {
-        const token = await AsyncStorage.getItem('token');
-        this.props.navigation.navigate(token ? 'Drawer' : 'Login');
+    Async = async () => {
+        this.props.navigation.navigate('Drawer');
     };
 
     componentDidMount() {
         setTimeout(() => {
-            this._bootstrapAsync();
+            this.Async();
         }, 3000);
     }
 

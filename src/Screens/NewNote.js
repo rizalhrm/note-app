@@ -93,16 +93,7 @@ class NewNote extends Component {
     }
 
     handleSave = async () => {
-        let image = this.state.value[0].url;
-        let array = this.state.value[1].content;
-        var ret = '';
-
-        array.forEach(function(element) {
-            ret += element.text;
-        });
-
-        const user_id = 5;
-        this.props.dispatch(createNote({user_id: user_id, title: this.state.title, text: ret, image: image}))
+        this.props.dispatch(createNote({title: this.state.title, content: this.state.value}))
         .then( res => {
             this.props.navigation.navigate("HomeDrawer");
             console.log(this.state.value)
@@ -323,6 +314,7 @@ renderHighlight() {
     }
 
   render() {
+    console.log(this.state.value)
     return (
       <View
       behavior="padding"

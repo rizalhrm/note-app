@@ -6,19 +6,9 @@ export const allNote = () => {
       type: 'ALL_NOTES',
       payload: axios({
                   method: 'GET',
-                  url: `${server.url}/api/v1/notes`
+                  url: `${server.url}/api/notes`
                })
     }
-}
-
-export const lastNote = () => {
-  return {
-    type: 'LAST_NOTE',
-    payload: axios({
-                method: 'GET',
-                url: `${server.url}/api/v1/notes/lastid`
-             })
-  }
 }
 
 export const createNote = (body) => {
@@ -26,7 +16,7 @@ export const createNote = (body) => {
       type: 'CREATE_NOTE',
       payload: axios({
         method: 'POST',
-        url: `${server.url}/api/v1/notes`,
+        url: `${server.url}/api/notes`,
         data: body
       })
     }
@@ -37,7 +27,7 @@ export const updateNote = (value) => {
       type: 'UPDATE_NOTE',
       payload: axios({
         method: 'PATCH',
-        url: `${server.url}/api/v1/note/${value.id}`,
+        url: `${server.url}/api/notes/${value.id}`,
         data: value
       })
     }
@@ -48,7 +38,7 @@ export const deleteNote = (value) => {
       type: 'DELETE_NOTE',
       payload: axios({
         method: 'DELETE',
-        url: `${server.url}/api/v1/note/${value.id}`
+        url: `${server.url}/api/notes/${value.id}`
       }),
     }
   }

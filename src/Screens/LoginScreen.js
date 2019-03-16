@@ -8,23 +8,38 @@ class LoginScreen extends React.Component {
     constructor() {
       super();
       this.state = {
+        isLoading: false,
         email: "",
         password: ""
       };
     }
 
     onLoginPress = () => {
+        this.setState({
+            isLoading: true
+        });      
         this.doLogin()
           .then(res => {
             const auth = this.props.auth;
             AsyncStorage.setItem("id", auth.data.id);
             AsyncStorage.setItem("token", auth.access_token.token);
             AsyncStorage.setItem("refreshToken", auth.access_token.refreshToken);
+            setTimeout(() => {
+                this.setState({
+                  isLoading: true
+                });    
             this.props.navigation.navigate("HomeDrawer");
+            }, 800);
           })
           .catch(err => {
-            console.log(err);
-            Alert.alert("Warning", "Login Failed !");
+            if (err.response != undefined) {
+				alert(err.response.data.msg)
+			} else {
+				alert(err)
+			}
+            this.setState({
+                isLoading: false
+            });      
           });
       };
     

@@ -17,15 +17,6 @@ const initialState = {
         return { ...state, isLoading: false, isError: true }
       case 'ALL_NOTES_FULFILLED':
         return { ...state, isLoading: false, notes: action.payload.data, length: action.payload.data.length}
-
-
-      case 'LAST_NOTE_PENDING':
-        return {...state, isLoading: true, isSuccess: false, isError: false}
-      case 'LAST_NOTE_REJECTED':
-        return { ...state, isLoading: false, isError: true }
-      case 'LAST_NOTE_FULFILLED':
-        return { ...state, isLoading: false, lastid: action.payload.data + 1}
-      
   
       case 'CREATE_NOTE_PENDING':
         return {...state, isLoading: true, isSuccess: false, isError: false};

@@ -9,11 +9,10 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
-import { Card, Body, CardItem } from 'native-base';
 import { connect } from 'react-redux';
 import { allNote, deleteNote } from '../public/redux/actions/note';
 
-import { Button, Container, Header, Content, Left, Footer, Fab, Icon } from 'native-base';
+import { Button, Container, Header, Content, Left, Footer, Icon, Card, Body, CardItem } from 'native-base';
 import ActionButton from 'react-native-action-button';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -57,7 +56,7 @@ class HomeScreen extends Component {
     )
   }
 
-  _keyExtractor = (item, index) => item.id.toString();
+  _keyExtractor = (item, index) => item._id;
 
     renderItem = ({ item, index }) => (
         <TouchableOpacity onPress={()=> this.props.navigation.navigate('UpdateNote', {item})}
@@ -67,10 +66,8 @@ class HomeScreen extends Component {
         <Card style={{marginRight: 4, marginLeft:4 , marginBottom: 4 , width: 200, height: 200}}>
           <CardItem>
             <Body>
-              <Text numberOfLines={1} style={{color: 'grey', fontSize: 15, paddingBottom: 5}}>{item.created_at}</Text>
               <Text numberOfLines={1} style={{ fontSize: 18, color : 'black', marginBottom:2}}>{item.title == null ? '[No Title]' : item.title }</Text>
-              <Text numberOfLines={2} style={{ fontSize: 16, color : 'black', marginBottom:2}}>{item.text == null ? '' : item.text }</Text>
-              <Image source={{uri: item.image}} style={styles.image}/>
+             
             </Body>
           </CardItem>
         </Card>

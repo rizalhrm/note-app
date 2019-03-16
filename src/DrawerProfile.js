@@ -3,24 +3,7 @@ import {View, Text, StyleSheet, Image, AsyncStorage} from 'react-native';
 import { Header, Body } from 'native-base'
 import { connect } from 'react-redux';
 
-import { getProfile } from './public/redux/actions/auth'
-
 class DrawerProfile extends React.Component {
-
-    // componentDidMount() {
-	// 	this.getprofiledata()
-	// }
-
-	// getprofiledata = async () => {
-	// 	try {
-    //         const id = this.props.auth.data.id;
-    //         const token = this.props.auth.access_token.token;
-
-	// 		await this.props.dispatch(getProfile(id, token))
-	// 	} catch(e) {
-	// 		alert(e.message)
-	// 	}
-	// }
 
     render(){
         return (
@@ -31,7 +14,7 @@ class DrawerProfile extends React.Component {
                     source={require('../assets/DrawerIcons/icon.png')} />
                     <View style={{flexDirection:'column', justifyContent:'center', alignSelf: 'center', paddingHorizontal:10, paddingVertical: 10}}>
                         <View>
-                            <Text style={styles.drawerName}>Rizal Hermawan</Text>
+                            <Text style={styles.drawerName}>rizal54@gmail.com</Text>
                         </View>
 					</View>
                 </Body>
@@ -42,8 +25,6 @@ class DrawerProfile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		auth: state.auth,
-		user: state.user
 	}
 }
 
