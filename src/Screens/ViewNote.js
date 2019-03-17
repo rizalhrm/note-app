@@ -164,7 +164,7 @@ class UpdateNote extends Component {
                 }}
             >
                 {
-                    this.state.contents.map(contents, (item, index) => {
+                    this.state.contents.map(item, index => {
                         if (item.component === 'text') {
                             return (
                                 this.renderText(item, index)
