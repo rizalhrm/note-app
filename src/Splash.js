@@ -1,6 +1,5 @@
 import React from "react";
 import { ImageBackground, ActivityIndicator, StyleSheet, Text, View, AsyncStorage } from "react-native";
-import { connect } from 'react-redux';
 
 class Splash extends React.Component {
 
@@ -34,13 +33,7 @@ class Splash extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-	return {
-		auth: state.auth
-	}
-}
-
-export default connect(mapStateToProps)(Splash);
+export default Splash;
 
 const styles = StyleSheet.create({
     container: {

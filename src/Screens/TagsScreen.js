@@ -8,9 +8,9 @@ import {
 import { Container, Content, Icon, Button } from 'native-base'
 import CustomHeader from '../Components/CustomHeader'
 
-class SettingsScreen extends Component {
+class TagsScreen extends Component {
     static navigationOptions = ({ navigation }) => ({
-        title: "Edit Profile",
+        title: "Category",
         headerLeft: <Icon name="menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
         drawerIcon:
             <Image
@@ -42,7 +42,7 @@ class SettingsScreen extends Component {
 
 }
 
-export default SettingsScreen
+export default TagsScreen
 
 const styles = StyleSheet.create({
     icon: {

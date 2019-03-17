@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
-  AsyncStorage,
   Platform,
   Dimensions,
   TouchableOpacity
@@ -45,12 +44,14 @@ class NewNote extends Component {
         title: title,
         selectedTag : 'body',
         selectedStyles : [],
-        value: [getInitialObject()],
+        value: [getInitialObject],
         selectedColor : 'default',
         selectedHighlight: 'default',
         colors : ['red', 'green', 'blue'],
         highlights:['yellow_hl','pink_hl', 'orange_hl', 'green_hl','purple_hl','blue_hl']
     }
+
+    this.state.value = [getInitialObject()];
 
     this.editor = null;
   }

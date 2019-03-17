@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
 
 import { Container, Content } from 'native-base'
 import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavigator, createSwitchNavigator } from 'react-navigation';
@@ -7,15 +6,13 @@ import { createAppContainer, createDrawerNavigator, DrawerItems, createStackNavi
 import store from './src/public/redux/store';
 import { Provider } from 'react-redux';
 
-import LogOutScreen from './src/Screens/LogOutScreen';
-import SettingsScreen from './src/Screens/SettingsScreen';
+import TagsScreen from './src/Screens/TagsScreen';
 import HomeScreen from "./src/Screens/HomeScreen";
-import LoginScreen from './src/Screens/LoginScreen';
-import RegisterScreen from './src/Screens/RegisterScreen';
 import Splash from './src/Splash'
 import DrawerProfile from './src/DrawerProfile';
 import NewNote from './src/Screens/NewNote';
 import UpdateNote from './src/Screens/UpdateNote';
+import ViewNote from './src/Screens/ViewNote';
 
 const CustomDrawerContentComponent = (props) => (
 
@@ -29,31 +26,18 @@ const CustomDrawerContentComponent = (props) => (
 
 );
 
-const LoginNavigator = createStackNavigator({
-  Login: {
-      screen: LoginScreen,
-      navigationOptions: () => ({
-          header: null
-      })
-  },
-  Register: {
-      screen: RegisterScreen,
-      navigationOptions: () => ({
-          title: "Register",
-          headerStyle: {
-              backgroundColor: '#fff',
-          },
-          headerTintColor: '#000'
-      }),
-  }
-})
-
 const CreateNoteNavigator = createStackNavigator({
   NewNote: {
       screen: NewNote,
       navigationOptions: () => ({
         header: null
     })
+  },
+  ViewNote: {
+    screen: ViewNote,
+    navigationOptions: () => ({
+      header: null
+  })
   },
   UpdateNote: {
     screen: UpdateNote,
@@ -68,14 +52,8 @@ const Drawer = createDrawerNavigator({
     HomeDrawer: {
       screen: HomeScreen,
     },
-    SettingsDrawer: {
-      screen: SettingsScreen
-    },
-    LogOut : {
-      screen: LogOutScreen,
-      navigationOptions: () => ({
-        header: null
-      })
+    TagsDrawer: {
+      screen: TagsScreen
     }
 },
   {
@@ -92,7 +70,6 @@ const MainStack = createAppContainer(createSwitchNavigator(
   {
       Splash : Splash,
       Drawer : Drawer,
-      Login : LoginNavigator,
       NewNote : CreateNoteNavigator
   },
   {

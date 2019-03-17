@@ -59,15 +59,14 @@ class HomeScreen extends Component {
   _keyExtractor = (item, index) => item._id;
 
     renderItem = ({ item, index }) => (
-        <TouchableOpacity onPress={()=> this.props.navigation.navigate('UpdateNote', {item})}
+        <TouchableOpacity onPress={()=> this.props.navigation.navigate('ViewNote', {item})}
         onLongPress={()=> this.handleDelete(item)}
         >
 
-        <Card style={{marginRight: 4, marginLeft:4 , marginBottom: 4 , width: 200, height: 200}}>
+        <Card style={{marginRight: 4, marginLeft:4 , marginBottom: 4 , width: 200, height: 50}}>
           <CardItem>
             <Body>
               <Text numberOfLines={1} style={{ fontSize: 18, color : 'black', marginBottom:2}}>{item.title == null ? '[No Title]' : item.title }</Text>
-             
             </Body>
           </CardItem>
         </Card>

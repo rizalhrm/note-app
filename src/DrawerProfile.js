@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, AsyncStorage} from 'react-native';
 import { Header, Body } from 'native-base'
-import { connect } from 'react-redux';
 
 class DrawerProfile extends React.Component {
 
@@ -23,12 +22,7 @@ class DrawerProfile extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-	return {
-	}
-}
-
-export default connect(mapStateToProps)(DrawerProfile);
+export default DrawerProfile;
 
 const styles = StyleSheet.create({
 
